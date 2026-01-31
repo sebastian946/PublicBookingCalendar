@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Public Booking Calendar - ProConsult</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-size: 20px; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d121b] dark:text-gray-100 font-display min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 px-10 py-3 sticky top-0 z-50">
+<div class="flex items-center gap-4 text-[#0d121b] dark:text-white">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">medical_services</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">ProConsult Booking</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="flex items-center gap-9">
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Find a Doctor</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Services</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">Clinics</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors" href="#">About Us</a>
+</div>
+<button class="flex min-w-[84px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-blue-700 transition-colors">
+<span class="truncate">Sign In</span>
+</button>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto px-6 py-8">
+<!-- Breadcrumbs -->
+<div class="flex flex-wrap gap-2 pb-6">
+<a class="text-[#4c669a] dark:text-gray-400 text-sm font-medium hover:underline" href="#">Home</a>
+<span class="text-[#4c669a] dark:text-gray-400 text-sm font-medium">/</span>
+<a class="text-[#4c669a] dark:text-gray-400 text-sm font-medium hover:underline" href="#">Search Results</a>
+<span class="text-[#4c669a] dark:text-gray-400 text-sm font-medium">/</span>
+<span class="text-[#0d121b] dark:text-white text-sm font-medium">Dr. Jane Smith</span>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Left Sidebar: Professional Info -->
+<aside class="col-span-3 flex flex-col gap-6">
+<div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6">
+<div class="flex flex-col items-center text-center gap-4 mb-6">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-24 border-4 border-primary/10" data-alt="Portrait of a female medical professional smiling" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAkJsuHc1k5aRBvy4CGSm55CeY7SDmx4cS82Pu-8U8X7vCUK4epQa2Taj2jhW_KTD54t0dJ6-g72x0GAj38RNXb0JkdQdLm99k9xj8kIe5iMjhWwMB2nJS8Td3-fWTUOv5U8hhCST5HzSdaIMxJ4M0DwaizQP0rG-GYBtQtmc101unIzqF0c-VwKSIQdr_6fZNGA30NnlkQT4RjmWxinePIOOSDUiSmuVYyFgGxpCm2oGKIEnJdvJLbvBlVdqTaHwJ9oMVAGGQJ");'></div>
+<div class="flex flex-col">
+<h1 class="text-xl font-bold">Dr. Jane Smith</h1>
+<p class="text-primary text-sm font-semibold">Senior Medical Consultant</p>
+<p class="text-gray-500 text-xs mt-1">MD, PhD, Cardiology Specialist</p>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/5 text-primary">
+<span class="material-symbols-outlined">person</span>
+<p class="text-sm font-semibold">Profile Overview</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined">school</span>
+<p class="text-sm font-medium">Experience &amp; Education</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined">star</span>
+<p class="text-sm font-medium">Reviews (4.9/5)</p>
+</div>
+<div class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined">location_on</span>
+<p class="text-sm font-medium">Location</p>
+</div>
+</div>
+<hr class="my-6 border-gray-100 dark:border-gray-800"/>
+<div class="space-y-4">
+<h3 class="text-sm font-bold uppercase tracking-wider text-gray-400">About</h3>
+<p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                            With over 15 years of experience in cardiology and general medicine, Dr. Smith specializes in preventative care and chronic disease management.
+                        </p>
+</div>
+<button class="w-full mt-8 flex cursor-pointer items-center justify-center rounded-lg h-11 px-4 border border-primary text-primary text-sm font-bold hover:bg-primary/5 transition-colors">
+<span class="truncate">Contact Office</span>
+</button>
+</div>
+<div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-4">
+<div class="w-full h-32 bg-gray-100 dark:bg-gray-800 rounded-lg mb-3 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Simplified map showing office location in a city grid" data-location="Chicago, IL" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEy1AqkJglS0ANTZ6BsnmDTn9RXW1__IxgC-pcZERTZmWDckRgXJZlt0D6hluYKwRA1uHZWDzA22AsGuVeO9yC4cMal8f8d9QE_1nys73p3B3Zp_pbPsH2Eya-vhktGHPfrCR7kNr1EyB80jQ9fYqssyIgoOkh_Jp8d99R7K7hHXNXQSyL57BGuli0UuXlAG7L2yb_U3qRqsCQDGaB9PvqAQqKzZRAi4ZKvo8tnt9QVpu_7t4j11IL7sGeMydE0ELV2nYtaZEy"/>
+</div>
+<p class="text-xs text-gray-500">
+<span class="material-symbols-outlined align-middle !text-sm">location_on</span> 
+                        123 Medical Plaza, Suite 400, Chicago, IL
+                    </p>
+</div>
+</aside>
+<!-- Center: Calendar Action Area -->
+<section class="col-span-6 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden shadow-sm flex flex-col">
+<div class="p-6 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+<div>
+<h2 class="text-xl font-bold">Select Date &amp; Time</h2>
+<p class="text-sm text-gray-500">Local time: Chicago (GMT-6)</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full text-gray-400">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<span class="text-sm font-bold min-w-[120px] text-center">October 2024</span>
+<button class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full text-gray-400">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="p-6">
+<div class="grid grid-cols-7 gap-1 mb-2">
+<div class="text-center text-xs font-bold text-gray-400 py-2">SUN</div>
+<div class="text-center text-xs font-bold text-gray-400 py-2">MON</div>
+<div class="text-center text-xs font-bold text-gray-400 py-2">TUE</div>
+<div class="text-center text-xs font-bold text-gray-400 py-2">WED</div>
+<div class="text-center text-xs font-bold text-gray-400 py-2">THU</div>
+<div class="text-center text-xs font-bold text-gray-400 py-2">FRI</div>
+<div class="text-center text-xs font-bold text-gray-400 py-2">SAT</div>
+</div>
+<div class="grid grid-cols-7 gap-2">
+<!-- Previous Month -->
+<div class="aspect-square flex items-center justify-center text-gray-300 text-sm">29</div>
+<div class="aspect-square flex items-center justify-center text-gray-300 text-sm">30</div>
+<!-- Current Month -->
+<div class="aspect-square flex items-center justify-center text-sm font-medium hover:bg-primary/5 rounded-lg cursor-pointer">1</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium hover:bg-primary/5 rounded-lg cursor-pointer">2</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium hover:bg-primary/5 rounded-lg cursor-pointer">3</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium hover:bg-primary/5 rounded-lg cursor-pointer">4</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium hover:bg-primary/5 rounded-lg cursor-pointer">5</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium hover:bg-primary/5 rounded-lg cursor-pointer">6</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium hover:bg-primary/5 rounded-lg cursor-pointer">7</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium hover:bg-primary/5 rounded-lg cursor-pointer">8</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium hover:bg-primary/5 rounded-lg cursor-pointer">9</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium bg-primary/10 text-primary border border-primary/20 rounded-lg cursor-pointer font-bold">10</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium hover:bg-primary/5 rounded-lg cursor-pointer">11</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium hover:bg-primary/5 rounded-lg cursor-pointer">12</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium hover:bg-primary/5 rounded-lg cursor-pointer">13</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium hover:bg-primary/5 rounded-lg cursor-pointer">14</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium hover:bg-primary/5 rounded-lg cursor-pointer">15</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium hover:bg-primary/5 rounded-lg cursor-pointer">16</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium hover:bg-primary/5 rounded-lg cursor-pointer">17</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium hover:bg-primary/5 rounded-lg cursor-pointer">18</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium hover:bg-primary/5 rounded-lg cursor-pointer">19</div>
+<div class="aspect-square flex items-center justify-center text-sm font-medium hover:bg-primary/5 rounded-lg cursor-pointer">20</div>
+</div>
+<div class="mt-10">
+<h3 class="text-sm font-bold text-gray-700 dark:text-gray-300 mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">schedule</span> Available Slots for Thursday, Oct 10
+                        </h3>
+<div class="grid grid-cols-4 gap-3">
+<button class="py-2.5 px-3 border border-gray-200 dark:border-gray-800 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all text-center">09:00 AM</button>
+<button class="py-2.5 px-3 border border-gray-200 dark:border-gray-800 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all text-center">10:30 AM</button>
+<button class="py-2.5 px-3 bg-primary text-white border border-primary rounded-lg text-sm font-bold text-center">01:00 PM</button>
+<button class="py-2.5 px-3 border border-gray-200 dark:border-gray-800 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all text-center">02:30 PM</button>
+<button class="py-2.5 px-3 border border-gray-200 dark:border-gray-800 rounded-lg text-sm font-medium hover:border-primary hover:text-primary transition-all text-center">04:00 PM</button>
+<button class="py-2.5 px-3 border border-gray-200 dark:border-gray-800 rounded-lg text-sm font-medium opacity-40 cursor-not-allowed bg-gray-50 text-center" disabled="">05:30 PM</button>
+</div>
+</div>
+</div>
+<div class="mt-auto p-6 bg-gray-50 dark:bg-gray-800/50 flex items-center gap-6 border-t border-gray-100 dark:border-gray-800">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-primary rounded-full"></div>
+<span class="text-xs text-gray-500 font-medium">Selected</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-white border border-gray-300 rounded-full"></div>
+<span class="text-xs text-gray-500 font-medium">Available</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-gray-200 rounded-full"></div>
+<span class="text-xs text-gray-500 font-medium">Booked/Off</span>
+</div>
+</div>
+</section>
+<!-- Right Panel: Filters & Selection -->
+<aside class="col-span-3 flex flex-col gap-6">
+<div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6">
+<h3 class="text-base font-bold mb-5 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">filter_alt</span>
+                        Filters
+                    </h3>
+<div class="space-y-6">
+<div>
+<label class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-3">Service Type</label>
+<div class="flex flex-col gap-3">
+<label class="relative flex items-center gap-3 p-3 rounded-lg border-2 border-primary bg-primary/5 cursor-pointer">
+<input checked="" class="hidden" name="service" type="radio"/>
+<div class="flex flex-col flex-1">
+<span class="text-sm font-bold">General Consultation</span>
+<span class="text-xs text-gray-500">30 min • $150</span>
+</div>
+<span class="material-symbols-outlined text-primary">check_circle</span>
+</label>
+<label class="relative flex items-center gap-3 p-3 rounded-lg border-2 border-transparent bg-gray-50 dark:bg-gray-800 cursor-pointer hover:border-gray-200">
+<input class="hidden" name="service" type="radio"/>
+<div class="flex flex-col flex-1">
+<span class="text-sm font-bold">Specialty Screening</span>
+<span class="text-xs text-gray-500">60 min • $280</span>
+</div>
+</label>
+<label class="relative flex items-center gap-3 p-3 rounded-lg border-2 border-transparent bg-gray-50 dark:bg-gray-800 cursor-pointer hover:border-gray-200">
+<input class="hidden" name="service" type="radio"/>
+<div class="flex flex-col flex-1">
+<span class="text-sm font-bold">Follow-up Visit</span>
+<span class="text-xs text-gray-500">15 min • $85</span>
+</div>
+</label>
+</div>
+</div>
+<div>
+<label class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-3">Visit Method</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex flex-col items-center justify-center p-3 rounded-lg border border-primary bg-primary/5 text-primary">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold mt-1">IN-PERSON</span>
+</button>
+<button class="flex flex-col items-center justify-center p-3 rounded-lg border border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-500">
+<span class="material-symbols-outlined">videocam</span>
+<span class="text-[10px] font-bold mt-1">VIRTUAL</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary text-white rounded-xl p-6 shadow-lg shadow-primary/20">
+<h4 class="text-xs font-bold uppercase tracking-widest opacity-80 mb-4">Summary</h4>
+<div class="space-y-3 mb-6">
+<div class="flex justify-between items-start">
+<span class="text-sm opacity-90">General Consultation</span>
+<span class="text-sm font-bold">$150.00</span>
+</div>
+<div class="flex justify-between items-start">
+<span class="text-sm opacity-90">Oct 10, 2024 at 01:00 PM</span>
+</div>
+</div>
+<button class="w-full bg-white text-primary rounded-lg h-12 font-bold text-sm hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
+                        Confirm Appointment
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-[10px] text-center mt-4 opacity-70">You won't be charged yet. Payment is processed at the clinic.</p>
+</div>
+<div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-4 flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500">verified_user</span>
+<p class="text-xs text-gray-500 leading-tight">Secure booking powered by ProConsult Platform</p>
+</div>
+</aside>
+</div>
+</main>
+</body></html>

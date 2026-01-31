@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Multi-step Booking Form - ConsultancyPro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .form-input:focus {
+            border-color: #135bec !important;
+            box-shadow: 0 0 0 1px #135bec !important;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-[#0d121b] dark:text-white">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden font-display">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e7ebf3] dark:border-gray-800 px-6 md:px-20 lg:px-40 py-4 bg-white dark:bg-background-dark sticky top-0 z-50">
+<div class="flex items-center gap-4 text-[#0d121b] dark:text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path>
+</svg>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">ConsultancyPro</h2>
+</div>
+<div class="flex gap-2">
+<button class="flex items-center justify-center rounded-lg h-10 bg-[#e7ebf3] dark:bg-gray-800 text-[#0d121b] dark:text-white px-3 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 bg-[#e7ebf3] dark:bg-gray-800 text-[#0d121b] dark:text-white px-3 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+<span class="material-symbols-outlined text-[20px]">account_circle</span>
+</button>
+</div>
+</header>
+<main class="flex flex-1 justify-center py-10 px-4 md:px-20 lg:px-40">
+<div class="layout-content-container flex flex-col max-w-[800px] flex-1">
+<!-- Page Heading -->
+<div class="flex flex-wrap justify-between gap-3 p-4">
+<div class="flex min-w-72 flex-col gap-1">
+<p class="text-[#0d121b] dark:text-white tracking-light text-[32px] font-bold leading-tight">Book Your Appointment</p>
+<p class="text-[#4c669a] dark:text-gray-400 text-base font-normal leading-normal">Please fill in your details to secure your slot with our professionals.</p>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="flex flex-col gap-3 p-4 bg-white dark:bg-gray-900 rounded-xl border border-[#e7ebf3] dark:border-gray-800 shadow-sm mb-6">
+<div class="flex gap-6 justify-between items-center">
+<p class="text-[#0d121b] dark:text-white text-base font-semibold leading-normal flex items-center gap-2">
+<span class="flex items-center justify-center size-6 rounded-full bg-primary text-white text-xs">1</span>
+                                Step 1 of 3: Patient Details
+                            </p>
+<p class="text-primary text-sm font-bold leading-normal">33% Complete</p>
+</div>
+<div class="rounded-full bg-[#cfd7e7] dark:bg-gray-700 h-2 w-full overflow-hidden">
+<div class="h-full rounded-full bg-primary transition-all duration-500" style="width: 33%;"></div>
+</div>
+<div class="flex items-center gap-2 text-[#4c669a] dark:text-gray-400 text-sm font-normal">
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                            Next: Reason for Visit
+                        </div>
+</div>
+<!-- Main Form Card -->
+<div class="bg-white dark:bg-gray-900 border border-[#e7ebf3] dark:border-gray-800 rounded-xl shadow-md overflow-hidden">
+<div class="p-6 md:p-8">
+<h3 class="text-[#0d121b] dark:text-white tracking-light text-2xl font-bold leading-tight pb-6 border-b border-[#e7ebf3] dark:border-gray-800 mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">person</span>
+                                Patient Information
+                            </h3>
+<form class="space-y-6">
+<!-- Full Name -->
+<div class="flex flex-col gap-2">
+<label class="flex flex-col w-full">
+<p class="text-[#0d121b] dark:text-gray-200 text-sm font-semibold leading-normal pb-2">Full Name <span class="text-red-500">*</span></p>
+<input class="form-input flex w-full rounded-lg text-[#0d121b] dark:text-white border border-[#cfd7e7] dark:border-gray-700 bg-white dark:bg-gray-800 h-14 placeholder:text-[#94a3b8] px-4 text-base font-normal focus:ring-1 focus:ring-primary" placeholder="e.g. John Doe" type="text" value="Jane Smith"/>
+</label>
+</div>
+<!-- Email and Phone Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="flex flex-col w-full">
+<p class="text-[#0d121b] dark:text-gray-200 text-sm font-semibold leading-normal pb-2">Email Address <span class="text-red-500">*</span></p>
+<input class="form-input flex w-full rounded-lg text-[#0d121b] dark:text-white border border-red-500 bg-red-50 dark:bg-red-900/10 h-14 placeholder:text-[#94a3b8] px-4 text-base font-normal" placeholder="name@example.com" type="email" value="jane.smith@invalid"/>
+</label>
+<p class="text-red-500 text-xs font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">error</span>
+                                            Please enter a valid email address.
+                                        </p>
+</div>
+<div class="flex flex-col gap-2">
+<label class="flex flex-col w-full">
+<p class="text-[#0d121b] dark:text-gray-200 text-sm font-semibold leading-normal pb-2">Phone Number <span class="text-red-500">*</span></p>
+<input class="form-input flex w-full rounded-lg text-[#0d121b] dark:text-white border border-[#cfd7e7] dark:border-gray-700 bg-white dark:bg-gray-800 h-14 placeholder:text-[#94a3b8] px-4 text-base font-normal focus:ring-1 focus:ring-primary" placeholder="+1 (555) 000-0000" type="tel"/>
+</label>
+</div>
+</div>
+<!-- Date of Birth (Extra field for context) -->
+<div class="flex flex-col gap-2">
+<label class="flex flex-col w-48">
+<p class="text-[#0d121b] dark:text-gray-200 text-sm font-semibold leading-normal pb-2">Date of Birth</p>
+<input class="form-input flex w-full rounded-lg text-[#0d121b] dark:text-white border border-[#cfd7e7] dark:border-gray-700 bg-white dark:bg-gray-800 h-14 px-4 text-base font-normal focus:ring-1 focus:ring-primary" type="date"/>
+</label>
+</div>
+</form>
+</div>
+<!-- Form Footer Controls -->
+<div class="bg-gray-50 dark:bg-gray-800/50 p-6 flex justify-between items-center border-t border-[#e7ebf3] dark:border-gray-800">
+<button class="flex items-center justify-center rounded-lg h-12 px-6 bg-transparent text-[#4c669a] dark:text-gray-300 font-bold hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors gap-2">
+<span class="material-symbols-outlined">arrow_back</span>
+                                Cancel
+                            </button>
+<button class="flex items-center justify-center rounded-lg h-12 px-10 bg-primary text-white font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-primary/20 gap-2">
+                                Continue to Step 2
+                                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Step Summary (Preview of what's ahead) -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 opacity-60">
+<div class="p-4 border border-dashed border-gray-300 dark:border-gray-700 rounded-lg flex items-center gap-3">
+<span class="material-symbols-outlined text-gray-400">medical_services</span>
+<span class="text-sm font-medium">Reason for Visit</span>
+</div>
+<div class="p-4 border border-dashed border-gray-300 dark:border-gray-700 rounded-lg flex items-center gap-3">
+<span class="material-symbols-outlined text-gray-400">payments</span>
+<span class="text-sm font-medium">Payment &amp; Insurance</span>
+</div>
+<div class="p-4 border border-dashed border-gray-300 dark:border-gray-700 rounded-lg flex items-center gap-3">
+<span class="material-symbols-outlined text-gray-400">event_available</span>
+<span class="text-sm font-medium">Confirmation</span>
+</div>
+</div>
+<!-- Security Badge -->
+<div class="mt-12 flex items-center justify-center gap-2 text-gray-400 text-sm">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span>Your data is encrypted and secure. HIPAA Compliant.</span>
+</div>
+</div>
+</main>
+<!-- Sticky Help Button -->
+<div class="fixed bottom-6 right-6">
+<button class="size-14 rounded-full bg-white dark:bg-gray-800 shadow-xl border border-gray-100 dark:border-gray-700 flex items-center justify-center text-primary hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>
