@@ -1,14 +1,13 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-import type { ReactNode } from 'react';
-import { api, authApi } from '../services/api';
-import { socketService } from '../services/socket';
+import { createContext, useContext, useState, useEffect } from "react";
+import type { ReactNode } from "react";
+import { api, authApi } from "../services/api";
 
 interface User {
   id: string;
   email: string;
   firstName: string;
   lastName: string;
-  role: 'super_admin' | 'tenant_admin' | 'staff' | 'client';
+  role: "super_admin" | "tenant_admin" | "staff" | "client";
 }
 
 interface Tenant {
@@ -45,8 +44,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     // Check for existing auth on mount
     const initAuth = async () => {
-      const token = localStorage.getItem('authToken');
-      const savedTenant = localStorage.getItem('tenantSlug');
+      const token = localStorage.getItem("authToken");
+      const savedTenant = localStorage.getItem("tenantSlug");
 
       if (savedTenant) {
         api.setTenant(savedTenant);
@@ -60,7 +59,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
             // Connect socket if we have tenant
             if (savedTenant) {
-              socketService.connect(savedTenant);
             }
           }
         } catch (error) {
@@ -74,9 +72,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     initAuth();
 
-    return () => {
-      socketService.disconnect();
-    };
+    return () => {};
   }, []);
 
   const login = async (email: string, password: string) => {
@@ -86,12 +82,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const { user, tenant, accessToken, refreshToken } = response.data;
 
       api.setToken(accessToken);
-      localStorage.setItem('refreshToken', refreshToken);
+      localStorage.setItem("refreshToken", refreshToken);
 
       if (tenant) {
         api.setTenant(tenant.slug);
         setTenantState(tenant);
-        socketService.connect(tenant.id);
       }
 
       setUser(user);
@@ -114,12 +109,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const { user, tenant, accessToken, refreshToken } = response.data as any;
 
       api.setToken(accessToken);
-      localStorage.setItem('refreshToken', refreshToken);
+      localStorage.setItem("refreshToken", refreshToken);
 
       if (tenant) {
         api.setTenant(tenant.slug);
         setTenantState(tenant);
-        socketService.connect(tenant.id);
       }
 
       setUser(user);
@@ -131,8 +125,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const logout = () => {
     api.setToken(null);
     api.setTenant(null);
-    localStorage.removeItem('refreshToken');
-    socketService.disconnect();
+    localStorage.removeItem("refreshToken");
     setUser(null);
     setTenantState(null);
   };
@@ -163,7 +156,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 export function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
 }

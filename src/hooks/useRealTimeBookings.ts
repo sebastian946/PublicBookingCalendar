@@ -1,5 +1,4 @@
-import { useEffect, useCallback } from 'react';
-import { socketService } from '../services/socket';
+import { useEffect } from "react";
 
 interface BookingEvent {
   id: string;
@@ -36,30 +35,6 @@ export function useRealTimeBookings(options: UseRealTimeBookingsOptions = {}) {
 
   useEffect(() => {
     const unsubscribers: (() => void)[] = [];
-
-    if (onBookingCreated) {
-      unsubscribers.push(socketService.onBookingCreated(onBookingCreated));
-    }
-
-    if (onBookingUpdated) {
-      unsubscribers.push(socketService.onBookingUpdated(onBookingUpdated));
-    }
-
-    if (onBookingConfirmed) {
-      unsubscribers.push(socketService.onBookingConfirmed(onBookingConfirmed));
-    }
-
-    if (onBookingCancelled) {
-      unsubscribers.push(socketService.onBookingCancelled(onBookingCancelled));
-    }
-
-    if (onBookingRescheduled) {
-      unsubscribers.push(socketService.onBookingRescheduled(onBookingRescheduled));
-    }
-
-    if (onPaymentCompleted) {
-      unsubscribers.push(socketService.onPaymentCompleted(onPaymentCompleted));
-    }
 
     return () => {
       unsubscribers.forEach((unsub) => unsub());
